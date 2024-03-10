@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import ResultsTable from './ResultsTable.vue';
 export default defineComponent({
     name: 'MonitorsComponent'
 })
@@ -48,22 +49,22 @@ setInterval(() => {
     <div class="w-full flex-1 mx-auto p-2">
         <!-- <app-card-simple-results-table-monitors [categoryName]="'Muži'" [results]="simpleResultsResponse.muzi">
         </app-card-simple-results-table-monitors> -->
-        Tady bude tabulka mužů.
+        <ResultsTable category-name="Muži" />
     </div>
     <div class="w-full flex-1 mx-auto p-2">
         <!-- <app-card-simple-results-table-monitors [categoryName]="'Ženy'" [results]="simpleResultsResponse.zeny">
         </app-card-simple-results-table-monitors> -->
-        Tady bude tabulka žen.
+        <ResultsTable category-name="Ženy" />
     </div>
     <div class="w-full flex-1 mx-auto p-2">
         <!-- <app-card-simple-results-table-monitors [categoryName]="'Dorostenci'" [results]="simpleResultsResponse.dorostenci">
         </app-card-simple-results-table-monitors> -->
-        Tady bude tabulka dorostenců.
+        <ResultsTable category-name="Dorostenci" />
     </div>
     <div class="w-full flex-1 mx-auto p-2">
         <!-- <app-card-simple-results-table-monitors [categoryName]="'Veteráni'" [results]="simpleResultsResponse.veterani">
         </app-card-simple-results-table-monitors> -->
-        Tady bude tabulka veteránů.
+        <ResultsTable category-name="Veteráni" />
     </div>
 </div>
 
