@@ -1,0 +1,32 @@
+// Reference: https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference
+{
+  "name": "VueJS dev container",
+  "dockerFile": "Dockerfile",
+  "postCreateCommand": "npm install && npm run dev",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/zsh",
+        "files.trimTrailingWhitespace": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "always"
+        },
+        "cSpell.language": "en,cs"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "dariofuzinato.vue-peek",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "CoenraadS.bracket-pair-colorizer",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-czech",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "mhutchie.git-graph",
+        "Vue.volar"
+      ]
+    }
+  }
+}
