@@ -1,6 +1,10 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import { API } from '@/common/api';
+
+const ONE_SECOND: number = 1000;
+const TEN_SECONDS: number = 10 * ONE_SECOND;
+const ONE_MINUTE: number = 60;
 
 export default defineComponent({
   name: 'MonitorsComponent',
@@ -9,6 +13,8 @@ export default defineComponent({
       loading: false,
       results: { muzi: [], zeny: [], dorostenci: [], veterani: []},
       error: null,
+      timerInterval: -1,
+      timer: ONE_MINUTE,
     }
   },
   created() {
@@ -24,7 +30,24 @@ export default defineComponent({
       { immediate: true }
     )
   },
+  mounted() {
+    this.timerInterval = setInterval(this.timerLoop, ONE_SECOND);
+  },
+  beforeUnmount() {
+    clearInterval(this.timerInterval);
+  },
   methods: {
+    timerLoop() {
+      this.timer--; // decrease timer
+      if (
+        this.timer === 0 || // after one minute
+        (this.error && this.timer === (ONE_MINUTE - TEN_SECONDS)) // after ten seconds if loading failed
+      ) {
+        // @ts-ignore
+        this.fetchData(this.$route.params.id);
+        this.timer = ONE_MINUTE; // refresh timer
+      }
+    },
     fetchData(eventId: string) {
       this.error = null
       this.results = { muzi: [], zeny: [], dorostenci: [], veterani: []}
@@ -47,25 +70,6 @@ export default defineComponent({
 
 <script setup lang="ts">
 import ResultsTable from './ResultsTable.vue';
-const ONE_SECOND: number = 1000;
-const TEN_SECONDS: number = 10 * ONE_SECOND;
-const ONE_MINUTE: number = 60;
-
-const timer = ref(ONE_MINUTE);
-
-setInterval(
-  () => {
-    timer.value--; // decrease timer
-    if (
-      timer.value === 0 || // after one minute
-      (false /* error */ && timer.value === (ONE_MINUTE - TEN_SECONDS)) // after ten seconds if loading failed
-    ) {
-      // fetchData();
-      timer.value = ONE_MINUTE; // refresh timer
-    }
-  },
-  ONE_SECOND
-); // run this code every second
 </script>
 
 <template>
