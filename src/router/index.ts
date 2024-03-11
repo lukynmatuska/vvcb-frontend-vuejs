@@ -16,7 +16,12 @@ const routes = [
     },
     {
         path: '/monitors',
-        name: 'Monitors',
+        name: 'Monitors without ID',
+        component: MonitorsView
+    },
+    {
+        path: '/monitors/:id',
+        name: 'Monitors with ID',
         component: MonitorsView
     }
 ]

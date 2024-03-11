@@ -16,7 +16,8 @@ export default defineComponent({
     this.$watch(
       () => this.$route.params,
       () => {
-        this.fetchData()
+        // @ts-ignore
+        this.fetchData(this.$route.params.id)
       },
       // fetch the data when the view is created and the data is
       // already being observed
@@ -24,11 +25,11 @@ export default defineComponent({
     )
   },
   methods: {
-    fetchData() {
+    fetchData(eventId: string) {
       this.error = null
       this.results = { muzi: [], zeny: [], dorostenci: [], veterani: []}
       this.loading = true
-      API.results()
+      API.results(eventId)
         .then(async (response) => {
           // console.log(response)
           this.results = await response.json()
