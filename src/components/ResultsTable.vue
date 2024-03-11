@@ -36,10 +36,10 @@ export default defineComponent({
         <table>
             <thead>
                 <tr>
-                    <th>
+                    <th class="place">
                         &nbsp;
                     </th>
-                    <th>
+                    <th class="team">
                         Tým
                     </th>
                     <th>
@@ -55,10 +55,10 @@ export default defineComponent({
             </thead>
             <tbody>
                 <tr v-for="result in results" :key="result.team">
-                    <td>
+                    <td class="place">
                         {{ result.place }}
                     </td>
-                    <th>
+                    <th class="team">
                         {{ result.team }}
                     </th>
                     <td>
@@ -67,7 +67,7 @@ export default defineComponent({
                     <td>
                         {{ result.right_time }}
                     </td>
-                    <td>
+                    <td class="final-time">
                         {{result.final_time }}
                     </td>
                 </tr>
@@ -76,3 +76,47 @@ export default defineComponent({
     </div>
 </template>
 
+<style scoped>
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    padding: 1rem 1rem .15rem 1rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: 600;
+}
+
+th, td {
+    font-size: 1rem;
+}
+
+thead th {
+    text-transform: uppercase;
+    background-color: var(--color-background-soft);
+    padding-top: 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+td {
+    text-align: center;
+    padding: .33rem .5rem;
+}
+
+td.place {
+    text-align: right;
+}
+
+th.team {
+    text-align: left;
+    padding: 0 1rem;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--color-background-soft);
+}
+</style>

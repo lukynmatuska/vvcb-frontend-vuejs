@@ -86,7 +86,7 @@ setInterval(
   {{ timer }}
 </div>
 
-<div class="flex flex-wrap items-center justify-between" style="align-items: stretch;">
+<section>
   <div class="w-full flex-1 mx-auto p-2">
     <ResultsTable
       category-name="Muži"
@@ -111,7 +111,7 @@ setInterval(
       :results="results.veterani"
     />
   </div>
-</div>
+</section>
 
 </template>
 
@@ -152,6 +152,14 @@ div.loading.error {
   position: fixed;
   left: 10px;
   bottom: 5px;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
 </style>
