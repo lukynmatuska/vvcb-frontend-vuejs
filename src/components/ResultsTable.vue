@@ -97,9 +97,9 @@ th, td {
 
 thead th {
     text-transform: uppercase;
-    /* background-color: rgba(248,250,252,.15); */
+    background-color: var(--color-background-soft);
     padding-top: 0.25rem;
-    border-bottom: 1px solid rgba(248,250,252,.15);
+    border-bottom: 1px solid var(--color-border);
 }
 
 td {
@@ -117,6 +117,6 @@ th.team {
 }
 
 tbody tr:nth-child(even) {
-    background-color: rgba(248,250,252,.05);
+    background-color: var(--color-background-soft);
 }
 </style>
