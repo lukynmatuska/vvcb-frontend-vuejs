@@ -78,9 +78,9 @@ export default defineComponent({
 
 <style scoped>
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
-    padding: .75rem 1rem .15rem 1rem;
+    padding: 1rem 1rem .15rem 1rem;
 }
 
 table {
@@ -104,7 +104,7 @@ thead th {
 
 td {
     text-align: center;
-    padding: .25rem .5rem;
+    padding: .33rem .5rem;
 }
 
 td.place {
